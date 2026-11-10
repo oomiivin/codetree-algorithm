@@ -1,4 +1,3 @@
-import java.util.Scanner;
 import java.util.*;
 import java.io.*;
 
@@ -6,7 +5,6 @@ public class Main {
 
     static int n, m, q;
     static int[][] building;
-    static int[][] queries;
 
     static int[] dr = {0, 0, 1, -1};
     static int[] dc = {1, -1, 0, 0};
@@ -26,19 +24,17 @@ public class Main {
                 building[i][j] = Integer.parseInt(st.nextToken());
         }
 
-        queries = new int[q][4];
         for (int i = 0; i < q; i++) {
             st = new StringTokenizer(br.readLine());
 
-            for (int j = 0; j < 4; j++)
-                queries[i][j] = Integer.parseInt(st.nextToken()) - 1;
-        }
-        
-        for(int i = 0; i < q; i++) {
-            wind(queries[i][0], queries[i][1], queries[i][2], queries[i][3]);
-            change(queries[i][0], queries[i][1], queries[i][2], queries[i][3]);
-        }
+            int sr = Integer.parseInt(st.nextToken()) - 1;
+            int sc = Integer.parseInt(st.nextToken()) - 1;
+            int er = Integer.parseInt(st.nextToken()) - 1;
+            int ec = Integer.parseInt(st.nextToken()) - 1;
 
+            wind(sr, sc, er, ec);
+            change(sr, sc, er, ec);
+        }
 
         for(int i = 0; i < n; i++) {
             for(int j = 0; j < m; j++) {
@@ -122,8 +118,6 @@ public class Main {
             }
         }
 
-        for(int i = 0; i < n; i++) {
-            building[i] = Arrays.copyOf(newBuilding[i], m);
-        }
+        building = newBuilding;
     }
 }
