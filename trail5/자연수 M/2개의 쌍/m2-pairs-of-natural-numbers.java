@@ -1,4 +1,3 @@
-import java.util.Scanner;
 import java.util.*;
 
 public class Main {
@@ -8,7 +7,7 @@ public class Main {
         List<Integer> order = new ArrayList<>();
         Map<Integer, Integer> map = new HashMap<>();
 
-        int n = sc.nextInt(), m = 0;
+        int n = sc.nextInt();
 
         for (int i = 0; i < n; i++) {
             int x = sc.nextInt();
@@ -16,7 +15,6 @@ public class Main {
 
             map.put(y, x);
             order.add(y);
-            m += x;
         }
         
         Collections.sort(order);
